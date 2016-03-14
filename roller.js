@@ -36,7 +36,13 @@ wod = {
             }
         }
 
-        $('#success-result').html(successCount);
+        var successView = $('#success-result');
+        if (successCount < 0) {
+            successView.addClass('botched');
+        } else {
+            successView.removeClass('botched');
+        }
+        successView.html(successCount);
     },
     roll10: function () {
         return 1 + Math.floor(10 * Math.random());
