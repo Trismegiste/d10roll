@@ -27,8 +27,7 @@ wod = {
 
         var rolledDice = wod.roll10(diceCount);
 
-        for (var k = 0; k < diceCount; k++) {
-            var die = rolledDice[k];
+        rolledDice.forEach(function (die, idx) {
             diceResult.append('<div class="pure-u-1-2">' + die + '</div>');
             // one
             if (die === 1) {
@@ -39,7 +38,7 @@ wod = {
                     successCount++;
                 }
             }
-        }
+        })
 
         var successView = $('#success-result');
         if (successCount < 0) {
