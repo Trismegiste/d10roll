@@ -3,6 +3,12 @@
 }
 
 .rolldice {
-    font-size: 500%;
+    font-size: 400%;
+    text-align: center;
+}
+
+.result {
+    font-size: 800%;
+    text-align: center;
     font-weight: bold;
 }
