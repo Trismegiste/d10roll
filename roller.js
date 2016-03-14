@@ -4,11 +4,13 @@ wod = {
         for (var k = 1; k <= 16; k++) {
             diceCount.append('<option value="' + k + '">' + k + 'd</option>')
         }
+        diceCount.val('9');
 
         var srList = $('#sr-list');
         for (var k = 2; k <= 10; k++) {
             srList.append('<option value="' + k + '">SR ' + k + '</option>')
         }
+        srList.val('6');
 
         $('button').click(function (e) {
             wod.roller();
