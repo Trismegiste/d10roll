@@ -22,15 +22,9 @@
                 </div>
                 <div class="pure-u-1-2">
                     <form class="pure-form pure-form-aligned pure-g">
-                        <select id="cardinal" class="pure-u-1-2">
-                            <option>8d</option>
-                            <option>9d</option>
-                            <option>10d</option>
+                        <select id="dice-count" class="pure-u-1-2">
                         </select>
-                        <select id="sr" class="pure-u-1-2">
-                            <option>SR 3</option>
-                            <option>SR 6</option>
-                            <option>SR 10</option>
+                        <select id="sr-list" class="pure-u-1-2">
                         </select>
                         <button class="pure-button pure-button-primary pure-u-1">Roll</button>
                     </form>
@@ -41,5 +35,8 @@
         </div>
         <script src="./jquery.min.js"></script>
         <script src="./roller.js"></script>
+        <script>
+            wod.init();
+        </script>
     </body>
 </html>
