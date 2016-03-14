@@ -13,19 +13,20 @@ wod = {
         srList.val('6');
 
         $('button').click(function (e) {
-            wod.roller();
+            $('#dice-result').empty();
+            $('#success-result').html('');
+            wod.roll10($('#dice-count').val());
+
             return false;
         });
     },
-    roller: function () {
-        var diceCount = $('#dice-count').val();
+    updateView: function (rolledDice) {
         var sr = $('#sr-list').val();
 
         var diceResult = $('#dice-result');
-        diceResult.empty();
         var successCount = 0;
-        for (var k = 0; k < diceCount; k++) {
-            var die = this.roll10();
+
+        rolledDice.forEach(function (die, idx) {
             diceResult.append('<div class="pure-u-1-2">' + die + '</div>');
             // one
             if (die === 1) {
@@ -36,7 +37,7 @@ wod = {
                     successCount++;
                 }
             }
-        }
+        });
 
         var successView = $('#success-result');
         if (successCount < 0) {
@@ -46,7 +47,27 @@ wod = {
         }
         successView.html(successCount);
     },
-    roll10: function () {
-        return 1 + Math.floor(10 * Math.random());
+    roll10: function (diceCount) {
+        var res = [];
+
+        $.ajax({
+            url: 'https://www.random.org/integers/?num='
+                    + diceCount
+                    + '&min=1&max=10&col='
+                    + diceCount
+                    + '&base=10&format=plain&rnd=new',
+            method: 'GET'
+        }).done(function (data) {
+            var extracted = data.split("\t");
+            for(var k=0; k<diceCount; k++) {
+                res[k] = parseInt(extracted[k]);
+            }
+
+            wod.updateView(res);
+        }).fail(function (data) {
+            alert(data);
+        });
+
+        return res;
     }
 };
