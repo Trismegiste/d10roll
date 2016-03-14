@@ -15,6 +15,7 @@ wod = {
         $('button').click(function (e) {
             $('#dice-result').empty();
             $('#success-result').html('');
+            $('#dice-result').addClass('loader');
             wod.roll10($('#dice-count').val());
 
             return false;
@@ -39,6 +40,8 @@ wod = {
             }
         });
 
+        $('#dice-result').removeClass('loader');
+
         var successView = $('#success-result');
         if (successCount < 0) {
             successView.addClass('botched');
@@ -59,13 +62,13 @@ wod = {
             method: 'GET'
         }).done(function (data) {
             var extracted = data.split("\t");
-            for(var k=0; k<diceCount; k++) {
+            for (var k = 0; k < diceCount; k++) {
                 res[k] = parseInt(extracted[k]);
             }
 
             wod.updateView(res);
         }).fail(function (data) {
-            alert(data);
+            alert('An error has occured');
         });
 
         return res;
