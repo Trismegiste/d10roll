@@ -24,8 +24,11 @@ wod = {
         var diceResult = $('#dice-result');
         diceResult.empty();
         var successCount = 0;
+
+        var rolledDice = wod.roll10(diceCount);
+
         for (var k = 0; k < diceCount; k++) {
-            var die = this.roll10();
+            var die = rolledDice[k];
             diceResult.append('<div class="pure-u-1-2">' + die + '</div>');
             // one
             if (die === 1) {
@@ -46,7 +49,12 @@ wod = {
         }
         successView.html(successCount);
     },
-    roll10: function () {
-        return 1 + Math.floor(10 * Math.random());
+    roll10: function (diceCount) {
+        var res = [];
+        for (var k = 0; k < diceCount; k++) {
+            res[k] = 1 + Math.floor(10 * Math.random());
+        }
+
+        return res;
     }
 };
