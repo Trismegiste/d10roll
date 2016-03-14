@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dice Roller World of Darkness Custom edit</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./pure-min.css"/>
+        <link rel="stylesheet" href="./main.css"/>
+    </head>
+    <body>
+        <div class="content">
+            <h1>Simul</h1>
+            <form class="pure-form pure-form-aligned">
+                <select name="combatMode">
+                    <option value="range">Range</option>
+                    <option value="melee">Melee</option>
+                </select>
+                <div class="pure-g">
+                    <div class="pure-u-1-4" data-model-pk="0">
+                        <h2>PJ</h2>
+                        <label>Fighting</label><input type="number" class="pure-input-1-4" name="fighting"/><br/>
+                        <label>Shooting</label><input type="number" class="pure-input-1-4" name="shooting"/><br/>
+                        <label>Strength</label><input type="number" class="pure-input-1-4" name="strength"/><br/>
+                        <label>Vigor</label><input type="number" class="pure-input-1-4" name="vigor"/><br/>
+                        <label>Armour</label><input type="number" class="pure-input-1-4" name="armour"/><br/>
+                        <label>HardToKill</label><input type="number" class="pure-input-1-4" name="hardToKill"/><br/>
+                        <label>Dodge</label><input type="number" class="pure-input-1-4" name="dodge"/><br/>
+                        <button id="pulsa-start" class="pure-button pure-button-primary">Run</button>
+                    </div>
+                    <div class="pure-u-1-4" data-model-pk="1">
+                        <h2>PNJ1</h2>
+                        <label>Fighting</label><input type="number" class="pure-input-1-4" name="fighting"/><br/>
+                        <label>Shooting</label><input type="number" class="pure-input-1-4" name="shooting"/><br/>
+                        <label>Strength</label><input type="number" class="pure-input-1-4" name="strength"/><br/>
+                        <label>Vigor</label><input type="number" class="pure-input-1-4" name="vigor"/><br/>
+                        <label>Armour</label><input type="number" class="pure-input-1-4" name="armour"/><br/>
+                        <label>HardToKill</label><input type="number" class="pure-input-1-4" name="hardToKill"/><br/>
+                        <label>Dodge</label><input type="number" class="pure-input-1-4" name="dodge"/><br/>
+                        <table class="result pure-table">
+                            <tr><td>Victory</td><td class="victory"></td></tr>
+                            <tr><td>Defeat</td><td class="defeat"></td></tr>
+                            <tr><td>Draw</td><td class="draw"></td></tr>
+                        </table>
+                    </div>
+                    <div class="pure-u-1-4" data-model-pk="2">
+                        <h2>PNJ2</h2>
+                        <label>Fighting</label><input type="number" class="pure-input-1-4" name="fighting"/><br/>
+                        <label>Shooting</label><input type="number" class="pure-input-1-4" name="shooting"/><br/>
+                        <label>Strength</label><input type="number" class="pure-input-1-4" name="strength"/><br/>
+                        <label>Vigor</label><input type="number" class="pure-input-1-4" name="vigor"/><br/>
+                        <label>Armour</label><input type="number" class="pure-input-1-4" name="armour"/><br/>
+                        <label>HardToKill</label><input type="number" class="pure-input-1-4" name="hardToKill"/><br/>
+                        <label>Dodge</label><input type="number" class="pure-input-1-4" name="dodge"/><br/>
+                        <table class="result pure-table">
+                            <tr><td>Victory</td><td class="victory"></td></tr>
+                            <tr><td>Defeat</td><td class="defeat"></td></tr>
+                            <tr><td>Draw</td><td class="draw"></td></tr>
+                        </table>
+                    </div>
+                    <div class="pure-u-1-4" data-model-pk="3">
+                        <h2>PNJ3</h2>
+                        <label>Fighting</label><input type="number" class="pure-input-1-4" name="fighting"/><br/>
+                        <label>Shooting</label><input type="number" class="pure-input-1-4" name="shooting"/><br/>
+                        <label>Strength</label><input type="number" class="pure-input-1-4" name="strength"/><br/>
+                        <label>Vigor</label><input type="number" class="pure-input-1-4" name="vigor"/><br/>
+                        <label>Armour</label><input type="number" class="pure-input-1-4" name="armour"/><br/>
+                        <label>HardToKill</label><input type="number" class="pure-input-1-4" name="hardToKill"/><br/>
+                        <label>Dodge</label><input type="number" class="pure-input-1-4" name="dodge"/><br/>
+                        <table class="result pure-table">
+                            <tr><td>Victory</td><td class="victory"></td></tr>
+                            <tr><td>Defeat</td><td class="defeat"></td></tr>
+                            <tr><td>Draw</td><td class="draw"></td></tr>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="./jquery.min.js"></script>
+        <script src="./roller.js"></script>
+    </body>
+</html>
