@@ -13,19 +13,19 @@ wod = {
         srList.val('6');
 
         $('button').click(function (e) {
-            wod.roller();
+            var diceCount = $('#dice-count').val();
+            var rolledDice = wod.localRoll10(diceCount);
+
+            wod.roller(rolledDice);
             return false;
         });
     },
-    roller: function () {
-        var diceCount = $('#dice-count').val();
+    roller: function (rolledDice) {
         var sr = $('#sr-list').val();
 
         var diceResult = $('#dice-result');
         diceResult.empty();
         var successCount = 0;
-
-        var rolledDice = wod.roll10(diceCount);
 
         rolledDice.forEach(function (die, idx) {
             diceResult.append('<div class="pure-u-1-2">' + die + '</div>');
@@ -38,7 +38,7 @@ wod = {
                     successCount++;
                 }
             }
-        })
+        });
 
         var successView = $('#success-result');
         if (successCount < 0) {
@@ -48,11 +48,27 @@ wod = {
         }
         successView.html(successCount);
     },
-    roll10: function (diceCount) {
+    localRoll10: function (diceCount) {
         var res = [];
         for (var k = 0; k < diceCount; k++) {
             res[k] = 1 + Math.floor(10 * Math.random());
         }
+
+        return res;
+    },
+    roll10: function (diceCount) {
+        var res = [];
+
+        $.ajax({
+            url: 'https://www.random.org/integers/?num='
+                    + diceCount
+                    + '&min=1&max=10&col=1&base=10&format=plain&rnd=new',
+            method: 'GET'
+        }).done(function (data) {
+            res = data.split("\n");
+        }).fail(function (data) {
+            alert(data);
+        });
 
         return res;
     }
