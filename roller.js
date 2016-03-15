@@ -1,4 +1,5 @@
 wod = {
+    ajaxInProgress: false,
     init: function () {
         var diceCount = $('#dice-count');
         for (var k = 1; k <= 16; k++) {
@@ -45,6 +46,7 @@ wod = {
         var successView = $('#success-result');
         if (successCount < 0) {
             successView.addClass('botched');
+            successCount = "botch";
         } else {
             successView.removeClass('botched');
         }
@@ -52,6 +54,11 @@ wod = {
     },
     roll10: function (diceCount) {
         var res = [];
+
+        if (this.ajaxInProgress) {
+            return;
+        }
+        this.ajaxInProgress = true;
 
         $.ajax({
             url: 'https://www.random.org/integers/?num='
@@ -69,7 +76,10 @@ wod = {
             wod.updateView(res);
         }).fail(function (data) {
             alert('An error has occured');
+        }).always(function () {
+            wod.ajaxInProgress = false;
         });
+
 
         return res;
     }
