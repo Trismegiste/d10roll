@@ -9,7 +9,7 @@ wod = {
 
         var srList = $('#sr-list');
         for (var k = 2; k <= 10; k++) {
-            srList.append('<option value="' + k + '">SR ' + k + '</option>')
+            srList.append('<option value="' + k + '">TN ' + k + '</option>')
         }
         srList.val('6');
 
