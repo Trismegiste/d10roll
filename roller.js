@@ -21,6 +21,12 @@ wod = {
 
             return false;
         });
+
+        $('#stat-result button').click(function (e) {
+            var stat = wod.getStat($('#dice-count'), $('#sr-list'));
+            $('#stat-result table').empty();
+            $('#stat-result table').append('<tr><td>wesh</td></tr>');
+        });
     },
     updateView: function (rolledDice) {
         var sr = $('#sr-list').val();
@@ -82,5 +88,8 @@ wod = {
 
 
         return res;
+    },
+    getStat: function (numDice, targetNumber) {
+        return [];
     }
 };
