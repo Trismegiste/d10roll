@@ -23,7 +23,7 @@ wod = {
         });
 
         $('#stat-result button').click(function (e) {
-            var rolling = 10000;
+            var rolling = 100000;
             var stat = wod.getStat(rolling, $('#dice-count').val(), $('#sr-list').val());
             var rowX = $('#stat-result table thead tr');
             var rowY = $('#stat-result table tbody tr');
