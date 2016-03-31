@@ -22,3 +22,9 @@ button {
     margin-top: 0.6em;
     margin-bottom: 2em;
 }
+
+footer {
+    margin: 1em;
+    font-size: 60%;
+    text-align: center;
+}
