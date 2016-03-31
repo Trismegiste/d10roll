@@ -18,9 +18,13 @@
     font-size: 200%;
 }
 
-button {
-    margin-top: 0.6em;
-    margin-bottom: 2em;
+select, button {
+    margin-top: 1.2em;
+}
+
+.big-button {
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 footer {
