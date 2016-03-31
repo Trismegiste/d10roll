@@ -16,12 +16,11 @@
 .botched {
     background-color: pink;
     font-size: 200%;
-    padding-top: 2em;
-    padding-bottom: 2em;
 }
 
 select, button {
-    margin-top: 1.2em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em
 }
 
 .big-button {
