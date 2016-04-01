@@ -21,6 +21,21 @@ wod = {
 
             return false;
         });
+
+        // init bunch of sounds
+        ion.sound({
+            sounds: [
+                {name: "bell_ring"},
+                {name: "light_bulb_breaking"},
+                {name: "water_droplet_3"}
+            ],
+            // main config
+            path: "js/sounds/",
+            preload: true,
+            multiplay: true,
+            volume: 0.9
+        });
+
     },
     updateView: function (rolledDice) {
         var sr = $('#sr-list').val();
@@ -44,12 +59,16 @@ wod = {
         $('#dice-result').removeClass('loader');
 
         var successView = $('#success-result');
+
         if (successCount === 0) {
             successView.html('<div class="fail">FAIL</div>');
+            ion.sound.play("water_droplet_3");
         } else if (successCount < 0) {
             successView.html('<div class="fail botched">BOTCH</div>');
+            ion.sound.play("light_bulb_breaking");
         } else {
             successView.html('<div class="success">' + successCount + '</div><div class="small-legend">success</div>');
+            ion.sound.play("bell_ring");
         }
     },
     roll10: function (diceCount) {
