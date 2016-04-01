@@ -7,15 +7,23 @@
     text-align: center;
 }
 
-.result {
-    font-size: 800%;
+.success {
+    font-size: 600%;
     text-align: center;
     font-weight: bold;
+    background-color: lightgreen;
+}
+
+.fail {
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%;
+    padding: 2em 0;
+    background-color: lightgrey;
 }
 
 .botched {
     background-color: pink;
-    font-size: 200%;
 }
 
 select, button {
@@ -29,7 +37,14 @@ select, button {
 }
 
 footer {
-    margin: 1em;
+    margin: 2em;
     font-size: 60%;
     text-align: center;
+}
+
+.small-legend {
+    text-align: center;
+    font-size: 90%;
+    background-color: lightgreen;
+    padding-bottom: 1em;
 }

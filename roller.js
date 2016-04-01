@@ -44,13 +44,13 @@ wod = {
         $('#dice-result').removeClass('loader');
 
         var successView = $('#success-result');
-        if (successCount < 0) {
-            successView.addClass('botched');
-            successCount = "botch";
+        if (successCount === 0) {
+            successView.html('<div class="fail">FAIL</div>');
+        } else if (successCount < 0) {
+            successView.html('<div class="fail botched">BOTCH</div>');
         } else {
-            successView.removeClass('botched');
+            successView.html('<div class="success">' + successCount + '</div><div class="small-legend">success</div>');
         }
-        successView.html(successCount);
     },
     roll10: function (diceCount) {
         var res = [];
