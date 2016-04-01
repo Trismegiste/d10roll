@@ -1,4 +1,4 @@
-wod = {
+roller = {
     ajaxInProgress: false,
     init: function () {
         var diceCount = $('#dice-count');
@@ -17,7 +17,7 @@ wod = {
             $('#dice-result').empty();
             $('#success-result').html('');
             $('#dice-result').addClass('loader');
-            wod.roll10($('#dice-count').val());
+            roller.roll10($('#dice-count').val());
 
             return false;
         });
@@ -73,11 +73,11 @@ wod = {
                 res[k] = parseInt(extracted[k]);
             }
 
-            wod.updateView(res);
+            roller.updateView(res);
         }).fail(function (data) {
             alert('An error has occured');
         }).always(function () {
-            wod.ajaxInProgress = false;
+            roller.ajaxInProgress = false;
         });
 
 
