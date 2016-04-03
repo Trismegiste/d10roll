@@ -1,14 +1,15 @@
 roller = {
     ajaxInProgress: false,
+    maxDiceNumber: 18,
     init: function () {
         var diceCount = $('#dice-count');
-        for (var k = 1; k <= 16; k++) {
+        for (var k = 1; k <= this.maxDiceNumber; k++) {
             diceCount.append('<option value="' + k + '">' + k + 'd</option>')
         }
         diceCount.val('9');
 
         var srList = $('#sr-list');
-        for (var k = 2; k <= 10; k++) {
+        for (var k = 3; k <= 10; k++) {
             srList.append('<option value="' + k + '">tn' + k + '</option>')
         }
         srList.val('6');
