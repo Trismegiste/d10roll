@@ -26,14 +26,15 @@
     background-color: pink;
 }
 
-select, button {
+select {
     margin-top: 0.6em;
-    margin-bottom: 0.6em
+    margin-bottom: 1.2em
 }
 
 .big-button {
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-bottom: 1.2em
 }
 
 footer {
