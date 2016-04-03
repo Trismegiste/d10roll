@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./pure-min.css"/>
+        <link rel="stylesheet" href="./grids-responsive-min.css"/>
         <link rel="stylesheet" href="./main.css"/>
         <link rel="stylesheet" href="./loader.css"/>
     </head>
@@ -12,11 +13,12 @@
         <div class="content">
 
             <div class="pure-g">
-                <div class="pure-u-1-2">
+                <div class="pure-u-md-1-4"></div>
+                <div class="pure-u-1-2 pure-u-md-1-4">
                     <div class="pure-g rolldice" id="dice-result">
                     </div>
                 </div>
-                <div class="pure-u-1-2">
+                <div class="pure-u-1-2 pure-u-md-1-4">
                     <form class="pure-form pure-form-aligned pure-g">
                         <select id="dice-count" class="pure-u-1-2">
                         </select>
@@ -29,6 +31,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="pure-u-md-1-4"></div>
             </div>
         </div>
         <footer>
@@ -39,7 +42,6 @@
         <script>
             $(document).ready(function () {
                 roller.init();
-                        //             token.init();
             });
         </script>
     </body>
