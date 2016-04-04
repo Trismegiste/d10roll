@@ -15,10 +15,18 @@ roller = {
         srList.val('6');
 
         $('button').click(function (e) {
-            $('#dice-result').empty();
+            var poolView = $('#dice-result');
+            poolView.empty();
+            poolView.addClass('loader');
             $('#success-result').html('');
-            $('#dice-result').addClass('loader');
-            roller.roll10($('#dice-count').val());
+
+            roller.roll10($('#dice-count').val()).then(function (pool) {
+                roller.updateView(pool);
+            }).catch(function (err) {
+                alert(err.message);
+            }).then(function () {
+                poolView.removeClass('loader');
+            });
 
             return false;
         });
@@ -42,8 +50,6 @@ roller = {
             }
         });
 
-        $('#dice-result').removeClass('loader');
-
         var successView = $('#success-result');
         if (successCount === 0) {
             successView.html('<div class="fail">FAIL</div>');
@@ -54,34 +60,33 @@ roller = {
         }
     },
     roll10: function (diceCount) {
-        var res = [];
+        return new Promise(function (resolve, reject) {
+            var res = [];
 
-        if (this.ajaxInProgress) {
-            return;
-        }
-        this.ajaxInProgress = true;
-
-        $.ajax({
-            url: 'https://www.random.org/integers/?num='
-                    + diceCount
-                    + '&min=1&max=10&col='
-                    + diceCount
-                    + '&base=10&format=plain&rnd=new',
-            method: 'GET'
-        }).done(function (data) {
-            var extracted = data.split("\t");
-            for (var k = 0; k < diceCount; k++) {
-                res[k] = parseInt(extracted[k]);
+            if (roller.ajaxInProgress) {
+                return;
             }
+            roller.ajaxInProgress = true;
 
-            roller.updateView(res);
-        }).fail(function (data) {
-            alert('An error has occured');
-        }).always(function () {
-            roller.ajaxInProgress = false;
+            $.ajax({
+                url: 'https://www.random.org/integers/?num='
+                        + diceCount
+                        + '&min=1&max=10&col='
+                        + diceCount
+                        + '&base=10&format=plain&rnd=new',
+                method: 'GET'
+            }).done(function (data) {
+                var extracted = data.split("\t");
+                for (var k = 0; k < diceCount; k++) {
+                    res[k] = parseInt(extracted[k]);
+                }
+                resolve(res);
+            }).fail(function (data) {
+                reject(Error('An error has occured'));
+            }).always(function () {
+                roller.ajaxInProgress = false;
+            })
         });
 
-
-        return res;
     }
 };
