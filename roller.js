@@ -20,7 +20,7 @@ roller = {
             poolView.addClass('loader');
             $('#success-result').html('');
 
-            roller.roll10($('#dice-count').val()).then(function (pool) {
+            roller.localRoll10($('#dice-count').val()).then(function (pool) {
                 roller.updateView(pool);
             }).catch(function (err) {
                 alert(err.message);
@@ -87,6 +87,16 @@ roller = {
                 roller.ajaxInProgress = false;
             })
         });
+    },
+    localRoll10: function (diceCount) {
+        return new Promise(function (resolve, reject) {
+            var res = [];
+            for (var k = 0; k < diceCount; k++) {
+                res[k] = 1 + Math.floor(10 * Math.random());
+            }
 
+            resolve(res);
+        })
     }
+
 };
