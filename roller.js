@@ -14,7 +14,7 @@ roller = {
         }
         srList.val('6');
 
-        $('button').click(function (e) {
+        $('.big-button').click(function (e) {
             var poolView = $('#dice-result');
             poolView.empty();
             poolView.addClass('loader');
@@ -27,6 +27,14 @@ roller = {
             }).then(function () {
                 poolView.removeClass('loader');
             });
+
+            return false;
+        });
+
+        $('#history').on('click', 'button', function (e) {
+            $('#dice-count').val($(this).data('historyRolled'));
+            $('#sr-list').val($(this).data('historyTn'));
+            $('.big-button').trigger('click');
 
             return false;
         });
