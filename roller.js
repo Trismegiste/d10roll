@@ -37,6 +37,7 @@ roller = {
         var diceResult = $('#dice-result');
         var successCount = 0;
 
+        // updating pool view and counting...
         rolledDice.forEach(function (die, idx) {
             diceResult.append('<div class="pure-u-1-2">' + die + '</div>');
             // one
@@ -50,6 +51,7 @@ roller = {
             }
         });
 
+        // updating roll result
         var successView = $('#success-result');
         if (successCount === 0) {
             successView.html('<div class="fail">FAIL</div>');
@@ -58,6 +60,15 @@ roller = {
         } else {
             successView.html('<div class="success">' + successCount + '</div><div class="small-legend">success</div>');
         }
+
+        // updating history listing
+        $('#history').prepend('<div class="pure-u-1-2">\n\
+<div class="pure-g history-item">\n\
+<button class="pure-u-2-3 pure-button">toto</button>\n\
+<div class="pure-u-1-3 old-result">toto</div>\n\
+</div>\n\
+</div>');
+        //   $('#history').children().last().remove();
     },
     roll10: function (diceCount) {
         return new Promise(function (resolve, reject) {

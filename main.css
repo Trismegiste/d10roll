@@ -49,3 +49,12 @@ footer {
     background-color: lightgreen;
     padding-bottom: 1em;
 }
+
+.history-item {
+    padding-top: 1em;
+}
+
+.history-item .old-result {
+    vertical-align: middle;
+    text-align: center;
+}
