@@ -62,13 +62,15 @@ roller = {
         }
 
         // updating history listing
-        $('#history').prepend('<div class="pure-u-1-2">\n\
-<div class="pure-g history-item">\n\
-<button class="pure-u-2-3 pure-button">toto</button>\n\
-<div class="pure-u-1-3 old-result">toto</div>\n\
-</div>\n\
-</div>');
-        //   $('#history').children().last().remove();
+        $('#history').prepend('<div class="pure-u-1-2 history-item">'
+                + '<div class="pure-g">'
+                + '<button class="pure-u-2-3 pure-button" data-history-rolled="'
+                + rolledDice.length + '" data-history-tn="' + sr + '">'
+                + rolledDice.length + 'd tn' + sr + '</button>'
+                + '<div class="pure-u-1-3 old-result">' + successCount + '</div>'
+                + '</div>'
+                + '</div>');
+        $('#history .history-item:eq(6)').remove();
     },
     roll10: function (diceCount) {
         return new Promise(function (resolve, reject) {
